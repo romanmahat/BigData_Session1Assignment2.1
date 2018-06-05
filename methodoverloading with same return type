@@ -1,0 +1,44 @@
+question number 8:Can we overload a method with same return type?Explain your answer with proper logic?
+
+You can't do it in Java. 
+The rationale is that the return value alone is not sufficient for the compiler to figure out which function to call.
+
+
+program:
+import java.io.*;
+ 
+class Addition
+{
+    
+    public int add(int a, int b)
+    {
+         
+        int sum = a+b;
+        return sum;
+    }
+     
+    
+    public double add(int a, int b)
+    {
+        double sum = a+b+0.0;
+        return sum;
+    }
+   
+}
+ 
+class GFG 
+{
+    public static void main (String[] args) 
+    {
+        Addition ob = new Addition();
+         
+        int sum1 = ob.add(1,2);
+        System.out.println("sum of the two integer value :" + sum1);
+         
+        int sum2 = ob.add(1,2);
+        System.out.println("sum of the three integer value :" + sum2);
+         
+    }
+}
+
+output of this program is error.
